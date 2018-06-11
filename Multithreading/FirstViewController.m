@@ -24,7 +24,7 @@
 - (IBAction)buttonClick:(id)sender {
     
     for (NSInteger i = 0; i<10000; i++) {
-        NSLog(@"---buttonClick----%d",i);
+        NSLog(@"---buttonClick----%ld",(long)i);
     }
     
 }

@@ -340,6 +340,7 @@
 				CE97160E1E7A6EB000C545DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

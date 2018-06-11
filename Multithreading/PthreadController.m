@@ -19,9 +19,6 @@
     // Do any additional setup after loading the view.
 }
 
-
-
-
 - (IBAction)buttonClick:(id)sender {
     //PThread的创建
     pthread_t thread;
@@ -38,7 +35,7 @@ void * run(void *param){
     NSLog(@"当前线程--%@",[NSThread currentThread]);
     
     for (NSInteger i = 0; i<5000; i++) {
-        NSLog(@"-buttonClick-%d-%@",i,[NSThread currentThread]);
+        NSLog(@"-buttonClick-%ld-%@",(long)i,[NSThread currentThread]);
     }
     return NULL;
 }

@@ -24,27 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.ticketCount = 100;
-}
-
-
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
-//    [self createThread1];
-//    [self createThread2];
-//    [self createThread3];
-//
-//    [self threadSleep];
-//
-//    [self threadLock];
-//    [self threadSaleTicket];
-    
-    [self showImageView];
 }
 
 #pragma mark- 创建线程1
--(void)createThread1{
+- (IBAction)createThread1:(UIButton *)sender {
     
     /*
      通过alloc init进行创建
@@ -58,7 +41,6 @@
     //启动线程
     [thread start];
     
-    
     if ([thread isMainThread]){
         //是否在主线程执行
     }
@@ -69,50 +51,50 @@
 }
 
 #pragma mark- 创建线程2
--(void)createThread2{
-    
+- (IBAction)createThread2:(UIButton *)sender {
     // 创建方式 2 ：通过 detachNewThreadSelector 方式创建并执行线程
     [NSThread detachNewThreadSelector:@selector(run:) toTarget:self withObject:@"rose"];
 }
 
 #pragma mark- 创建线程3
--(void)createThread3{
+- (IBAction)createThread3:(UIButton *)sender {
+    
     //创建方式 3：隐式创建后自动启动线程
     [self performSelectorInBackground:@selector(run:) withObject:@"wahaha"];
 }
 
 -(void)run:(NSString *)str{
     
-    for (NSInteger i = 0; i<200; i++) {
-        NSLog(@"-buttonClick-%d-%@--%@",i,str,[NSThread currentThread]);
-        
-        if(i == 199){
-            
+    for (NSInteger i = 0; i<10; i++) {
+        NSLog(@"-buttonClick-%ld-%@--%@",(long)i,str,[NSThread currentThread]);
+        if(i == 9){
             [self performSelectorOnMainThread:@selector(runMainThread) withObject:nil waitUntilDone:YES];
         }
     }
 }
 
+
+
 -(void)runMainThread{
     NSLog(@"回归主线程--%@",[NSThread currentThread]);
 }
 
-
-
 #pragma mark-关于线程睡
--(void)threadSleep{
-    
+- (IBAction)threadSleep:(UIButton *)sender {
     [NSThread detachNewThreadSelector:@selector(active) toTarget:self withObject:nil];
-    
 }
 -(void)active{
-    NSLog(@"----");
+    NSLog(@"线程睡眠");
     [NSThread sleepForTimeInterval:2];
-    NSLog(@"-----");
+    NSLog(@"线程唤醒");
     
     for (NSInteger a = 0; a<10; a++) {
+        
+        NSLog(@"-执行");
         if (a == 5){
+            NSLog(@"退出线程");
             [NSThread exit];//退出线程
+            NSLog(@"不会打印");
         }
     }
 }
@@ -120,8 +102,11 @@
 
 
 #pragma mark-关于线程锁
--(void)threadLock{
-    
+
+- (IBAction)threadLock:(UIButton *)sender {
+
+    self.ticketCount = 5;
+
     self.thread01 = [[NSThread alloc]initWithTarget:self selector:@selector(saleTicket) object:nil];
     self.thread01.name = @"售票员1";
     
@@ -131,9 +116,6 @@
     self.thread03 = [[NSThread alloc]initWithTarget:self selector:@selector(saleTicket) object:nil];
     self.thread03.name = @"售票员3";
 
-}
-
--(void)threadSaleTicket{
     [self.thread01 start];
     [self.thread02 start];
     [self.thread03 start];
@@ -141,12 +123,13 @@
 -(void)saleTicket{
     while (1) {
         
+        NSLog(@"进行卖票-%@",[NSThread currentThread].name);
         // @synchronized (锁对象)，锁对象必须是一个，表示记录状态，一般用self就可以
         @synchronized (self) {
             NSInteger count = self.ticketCount;
             if (count > 0 ){
                 self.ticketCount = count - 1;
-                NSLog(@"%@卖了一张票，还剩%d张",[NSThread currentThread].name,self.ticketCount);
+                NSLog(@"%@卖了一张票，还剩%ld张",[NSThread currentThread].name,(long)self.ticketCount);
             }else{
                 NSLog(@"票卖完了");
                 break;
@@ -157,29 +140,23 @@
 
 
 #pragma mark-线程间的通信
--(void)showImageView{
+
+- (IBAction)showImageView:(UIButton *)sender {
     NSLog(@"%@",[NSThread currentThread]);
-
     [self performSelectorInBackground:@selector(download) withObject:nil];
-
 }
 
 -(void)download{
-    
     NSURL *url = [NSURL URLWithString:@"http://img.pconline.com.cn/images/photoblog/9/9/8/1/9981681/200910/11/1255259355826.jpg"];
     NSData *data = [NSData dataWithContentsOfURL:url];
-    
     UIImage *image =[UIImage imageWithData:data];
-    
     NSLog(@"%@",[NSThread currentThread]);
-    
     [self performSelectorOnMainThread:@selector(showImage:) withObject:image waitUntilDone:YES];
 }
 
 -(void)showImage:(UIImage *)image{
     self.imageView.image = image;
     NSLog(@"%@",[NSThread currentThread]);
-
 }
 
 

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LFz-7n-GWU">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LFz-7n-GWU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="LFz-7n-GWU" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MAQ-lI-fyd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxc-12-gFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-513" y="-251"/>
+            <point key="canvasLocation" x="-5982" y="188"/>
         </scene>
         <!--多线程-->
         <scene sceneID="MSN-XU-vgT">
@@ -38,41 +38,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGa-qN-0pd">
-                                <rect key="frame" x="148" y="100" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="卡UI"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGa-qN-0pd">
+                                <rect key="frame" x="46" y="94" width="283" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="e9W-0B-QcJ"/>
+                                </constraints>
+                                <state key="normal" title="验证UI卡顿的问题"/>
                                 <connections>
                                     <segue destination="6mB-np-9y5" kind="push" id="aJW-kv-Hta"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ifc-ce-sly">
-                                <rect key="frame" x="102" y="161" width="170" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="PThread"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ifc-ce-sly">
+                                <rect key="frame" x="46" y="154" width="283" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8ph-vs-jO0"/>
+                                </constraints>
+                                <state key="normal" title="PThread多线程不再卡UI"/>
                                 <connections>
                                     <segue destination="KLL-Sl-HhS" kind="push" id="fat-Gp-htb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3v-V4-poD">
-                                <rect key="frame" x="148" y="228" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3v-V4-poD">
+                                <rect key="frame" x="46" y="214" width="283" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xcw-Of-6Tb"/>
+                                </constraints>
                                 <state key="normal" title="NSThread"/>
                                 <connections>
                                     <segue destination="VWt-GQ-jeZ" kind="push" id="VEn-LU-Ygz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bT-H2-Yxu">
-                                <rect key="frame" x="124" y="302" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bT-H2-Yxu">
+                                <rect key="frame" x="46" y="274" width="283" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZWf-4l-zJ6"/>
+                                </constraints>
                                 <state key="normal" title="GCD"/>
                                 <connections>
                                     <segue destination="sbA-QR-4Vh" kind="push" id="rPP-0A-g6J"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbM-Ss-Mjs">
-                                <rect key="frame" x="128" y="371" width="118" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbM-Ss-Mjs">
+                                <rect key="frame" x="46" y="334" width="283" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="W3z-vW-JlS"/>
+                                </constraints>
                                 <state key="normal" title="operation"/>
                                 <connections>
                                     <segue destination="By1-en-weJ" kind="push" id="JOP-ZN-2Gt"/>
@@ -80,12 +90,29 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sGa-qN-0pd" firstAttribute="top" secondItem="tME-Wc-v79" secondAttribute="bottom" constant="30" id="122-FJ-Db8"/>
+                            <constraint firstItem="x3v-V4-poD" firstAttribute="leading" secondItem="4Hq-a1-EHn" secondAttribute="leadingMargin" constant="30" id="30W-cu-BlW"/>
+                            <constraint firstItem="0bT-H2-Yxu" firstAttribute="leading" secondItem="4Hq-a1-EHn" secondAttribute="leadingMargin" constant="30" id="4yJ-ve-FZi"/>
+                            <constraint firstItem="sGa-qN-0pd" firstAttribute="leading" secondItem="4Hq-a1-EHn" secondAttribute="leadingMargin" constant="30" id="6LI-4l-81L"/>
+                            <constraint firstItem="Ifc-ce-sly" firstAttribute="top" secondItem="sGa-qN-0pd" secondAttribute="bottom" constant="30" id="JJN-MF-tYr"/>
+                            <constraint firstItem="Ifc-ce-sly" firstAttribute="leading" secondItem="4Hq-a1-EHn" secondAttribute="leadingMargin" constant="30" id="Mb5-kh-5mH"/>
+                            <constraint firstItem="x3v-V4-poD" firstAttribute="top" secondItem="Ifc-ce-sly" secondAttribute="bottom" constant="30" id="OiJ-Ln-N1E"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ifc-ce-sly" secondAttribute="trailing" constant="30" id="PKg-V2-KP0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tbM-Ss-Mjs" secondAttribute="trailing" constant="30" id="Uz1-yT-QKD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="x3v-V4-poD" secondAttribute="trailing" constant="30" id="X0v-JU-KRj"/>
+                            <constraint firstItem="tbM-Ss-Mjs" firstAttribute="top" secondItem="0bT-H2-Yxu" secondAttribute="bottom" constant="30" id="XiY-YE-oHj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sGa-qN-0pd" secondAttribute="trailing" constant="30" id="Xpd-Q7-KUC"/>
+                            <constraint firstItem="tbM-Ss-Mjs" firstAttribute="leading" secondItem="4Hq-a1-EHn" secondAttribute="leadingMargin" constant="30" id="qiE-xm-oFf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0bT-H2-Yxu" secondAttribute="trailing" constant="30" id="w7Y-qL-Lsa"/>
+                            <constraint firstItem="0bT-H2-Yxu" firstAttribute="top" secondItem="x3v-V4-poD" secondAttribute="bottom" constant="30" id="wYm-vw-0Ba"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="多线程" id="GZL-Gx-JPQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yz-SG-E8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112.8" y="-263.11844077961024"/>
+            <point key="canvasLocation" x="-5266" y="189"/>
         </scene>
         <!--Operation View Controller-->
         <scene sceneID="vuE-Ue-S8e">
@@ -120,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4T-7X-GAy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-425" y="-968"/>
+            <point key="canvasLocation" x="-218" y="-127"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hma-9m-usQ">
@@ -135,17 +162,173 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nt9-ys-JZj">
-                                <rect key="frame" x="36" y="84" width="100" height="100"/>
+                                <rect key="frame" x="46" y="84" width="283" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="k6Z-pq-Y0T"/>
-                                    <constraint firstAttribute="height" constant="100" id="t3F-lC-EAH"/>
+                                    <constraint firstAttribute="height" constant="50" id="4SW-7b-scW"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhc-ng-v2l">
+                                <rect key="frame" x="179" y="164" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZeP-ng-vuG"/>
+                                    <constraint firstAttribute="width" constant="150" id="vZM-tG-us1"/>
+                                </constraints>
+                                <state key="normal" title="线程间通信"/>
+                                <connections>
+                                    <action selector="showImage:" destination="sbA-QR-4Vh" eventType="touchUpInside" id="2A8-9G-hmu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfC-Kg-g71">
+                                <rect key="frame" x="179" y="224" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="S34-ZJ-WKM"/>
+                                    <constraint firstAttribute="width" constant="150" id="aMC-UQ-fJn"/>
+                                </constraints>
+                                <state key="normal" title="线程设置barrier"/>
+                                <connections>
+                                    <action selector="queueSetBarrier:" destination="sbA-QR-4Vh" eventType="touchUpInside" id="pt4-XF-YZU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDm-KO-wyT">
+                                <rect key="frame" x="46" y="284" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="exZ-fR-Yuq"/>
+                                    <constraint firstAttribute="width" constant="150" id="jih-7y-cOi"/>
+                                </constraints>
+                                <state key="normal" title="异步函数+串行队列"/>
+                                <connections>
+                                    <action selector="createAsyncSerial:" destination="sbA-QR-4Vh" eventType="touchUpInside" id="20m-bM-hTL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ck-pH-JOf">
+                                <rect key="frame" x="46" y="164" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="pEb-re-EGA"/>
+                                    <constraint firstAttribute="width" constant="150" id="tEO-ET-AQr"/>
+                                </constraints>
+                                <state key="normal" title="异步函数+并发队列"/>
+                                <connections>
+                                    <action selector="createAsyncConcurrent:" destination="sbA-QR-4Vh" eventType="touchUpInside" id="0S2-tg-yIt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cw-VF-CK1">
+                                <rect key="frame" x="179" y="344" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Ayi-eP-I8g"/>
+                                    <constraint firstAttribute="height" constant="30" id="VSj-mU-znl"/>
+                                </constraints>
+                                <state key="normal" title="一次性代码"/>
+                                <connections>
+                                    <action selector="once:" destination="sbA-QR-4Vh" eventType="touchUpInside" id="bYh-bR-gdD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GP9-kH-UEK">
+                                <rect key="frame" x="46" y="344" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="cha-Ds-gQi"/>
+                                    <constraint firstAttribute="height" constant="30" id="dGM-ux-bfm"/>
+                                </constraints>
+                                <state key="normal" title="同步函数+串行队列"/>
+                                <connections>
+                                    <action selector="createSyncSerial:" destination="sbA-QR-4Vh" eventType="touchUpInside" id="SH1-DV-WeM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7p-q4-GHN">
+                                <rect key="frame" x="46" y="224" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KMl-Oy-w7Q"/>
+                                    <constraint firstAttribute="width" constant="150" id="suF-5e-AOD"/>
+                                </constraints>
+                                <state key="normal" title="同步函数+并发队列"/>
+                                <connections>
+                                    <action selector="createSyncConcurrent:" destination="sbA-QR-4Vh" eventType="touchUpInside" id="otU-EI-umd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J30-Vp-6EN">
+                                <rect key="frame" x="46" y="404" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="GAl-zR-P3Y"/>
+                                    <constraint firstAttribute="width" constant="150" id="xxp-5P-mpy"/>
+                                </constraints>
+                                <state key="normal" title="异步函数+主队列"/>
+                                <connections>
+                                    <action selector="createAsyncMainQueue:" destination="sbA-QR-4Vh" eventType="touchUpInside" id="YsP-fq-wYU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPq-EZ-TA3">
+                                <rect key="frame" x="179" y="404" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bT6-jj-3B3"/>
+                                    <constraint firstAttribute="width" constant="150" id="oiE-se-vca"/>
+                                </constraints>
+                                <state key="normal" title="快速迭代"/>
+                                <connections>
+                                    <action selector="rapidIteration:" destination="sbA-QR-4Vh" eventType="touchUpInside" id="MKl-pW-CLX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSa-Dz-ODk">
+                                <rect key="frame" x="179" y="284" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5r8-mw-cwz"/>
+                                    <constraint firstAttribute="width" constant="150" id="toB-03-vEJ"/>
+                                </constraints>
+                                <state key="normal" title="延时"/>
+                                <connections>
+                                    <action selector="queueSetDelayed:" destination="sbA-QR-4Vh" eventType="touchUpInside" id="6e9-Bc-zGM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJ3-V1-0bp">
+                                <rect key="frame" x="46" y="464" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="LcH-HM-ryz"/>
+                                    <constraint firstAttribute="height" constant="30" id="p21-4n-ES2"/>
+                                </constraints>
+                                <state key="normal" title="同步函数+主队列"/>
+                                <connections>
+                                    <action selector="createSyncMainQueue:" destination="sbA-QR-4Vh" eventType="touchUpInside" id="jRa-gR-QOE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HP3-e2-wMH">
+                                <rect key="frame" x="179" y="464" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="dg2-4K-1UH"/>
+                                    <constraint firstAttribute="height" constant="30" id="vMz-PL-Nir"/>
+                                </constraints>
+                                <state key="normal" title="队列组"/>
+                                <connections>
+                                    <action selector="queueGroup:" destination="sbA-QR-4Vh" eventType="touchUpInside" id="aaf-h2-ec6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nt9-ys-JZj" firstAttribute="leading" secondItem="8WV-rU-L0K" secondAttribute="leadingMargin" constant="20" id="a7n-71-dKQ"/>
-                            <constraint firstItem="nt9-ys-JZj" firstAttribute="top" secondItem="oxK-VW-3fg" secondAttribute="bottom" constant="20" id="n5p-C7-4wa"/>
+                            <constraint firstItem="bJ3-V1-0bp" firstAttribute="leading" secondItem="J30-Vp-6EN" secondAttribute="leading" id="1iu-jr-anY"/>
+                            <constraint firstItem="L7p-q4-GHN" firstAttribute="top" secondItem="5Ck-pH-JOf" secondAttribute="bottom" constant="30" id="1ka-cC-0K0"/>
+                            <constraint firstItem="gfC-Kg-g71" firstAttribute="top" secondItem="qhc-ng-v2l" secondAttribute="bottom" constant="30" id="54r-5v-sYx"/>
+                            <constraint firstItem="L7p-q4-GHN" firstAttribute="leading" secondItem="5Ck-pH-JOf" secondAttribute="leading" id="5xg-p2-P1W"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nt9-ys-JZj" secondAttribute="trailing" constant="30" id="8lM-O9-AUw"/>
+                            <constraint firstItem="8Cw-VF-CK1" firstAttribute="trailing" secondItem="ZSa-Dz-ODk" secondAttribute="trailing" id="AMW-gp-dAd"/>
+                            <constraint firstItem="HP3-e2-wMH" firstAttribute="trailing" secondItem="fPq-EZ-TA3" secondAttribute="trailing" id="CTO-DQ-lfp"/>
+                            <constraint firstItem="nt9-ys-JZj" firstAttribute="top" secondItem="oxK-VW-3fg" secondAttribute="bottom" constant="20" id="CYn-U0-Cja"/>
+                            <constraint firstItem="J30-Vp-6EN" firstAttribute="top" secondItem="GP9-kH-UEK" secondAttribute="bottom" constant="30" id="HgQ-lO-HHu"/>
+                            <constraint firstItem="5Ck-pH-JOf" firstAttribute="top" secondItem="nt9-ys-JZj" secondAttribute="bottom" constant="30" id="JkG-hC-dti"/>
+                            <constraint firstItem="HP3-e2-wMH" firstAttribute="top" secondItem="fPq-EZ-TA3" secondAttribute="bottom" constant="30" id="LR8-Ow-Z49"/>
+                            <constraint firstItem="bJ3-V1-0bp" firstAttribute="top" secondItem="J30-Vp-6EN" secondAttribute="bottom" constant="30" id="Oij-h6-Xyz"/>
+                            <constraint firstItem="gfC-Kg-g71" firstAttribute="trailing" secondItem="qhc-ng-v2l" secondAttribute="trailing" id="RSZ-uN-yIK"/>
+                            <constraint firstItem="rDm-KO-wyT" firstAttribute="leading" secondItem="L7p-q4-GHN" secondAttribute="leading" id="UOw-9N-Y6g"/>
+                            <constraint firstItem="5Ck-pH-JOf" firstAttribute="leading" secondItem="nt9-ys-JZj" secondAttribute="leading" id="Yhm-D9-BJs"/>
+                            <constraint firstItem="GP9-kH-UEK" firstAttribute="leading" secondItem="rDm-KO-wyT" secondAttribute="leading" id="b5a-zy-DMd"/>
+                            <constraint firstItem="ZSa-Dz-ODk" firstAttribute="top" secondItem="gfC-Kg-g71" secondAttribute="bottom" constant="30" id="cIA-na-NhZ"/>
+                            <constraint firstItem="fPq-EZ-TA3" firstAttribute="top" secondItem="8Cw-VF-CK1" secondAttribute="bottom" constant="30" id="eD2-i2-GrS"/>
+                            <constraint firstItem="nt9-ys-JZj" firstAttribute="leading" secondItem="8WV-rU-L0K" secondAttribute="leadingMargin" constant="30" id="fWA-ry-wea"/>
+                            <constraint firstItem="qhc-ng-v2l" firstAttribute="trailing" secondItem="nt9-ys-JZj" secondAttribute="trailing" id="fxx-RS-C4L"/>
+                            <constraint firstItem="8Cw-VF-CK1" firstAttribute="top" secondItem="ZSa-Dz-ODk" secondAttribute="bottom" constant="30" id="g0m-dJ-vuD"/>
+                            <constraint firstItem="qhc-ng-v2l" firstAttribute="top" secondItem="nt9-ys-JZj" secondAttribute="bottom" constant="30" id="hGf-ra-LKM"/>
+                            <constraint firstItem="ZSa-Dz-ODk" firstAttribute="trailing" secondItem="gfC-Kg-g71" secondAttribute="trailing" id="hbC-Fs-adt"/>
+                            <constraint firstItem="fPq-EZ-TA3" firstAttribute="trailing" secondItem="8Cw-VF-CK1" secondAttribute="trailing" id="iZl-Ls-08J"/>
+                            <constraint firstItem="GP9-kH-UEK" firstAttribute="top" secondItem="rDm-KO-wyT" secondAttribute="bottom" constant="30" id="oIf-Tn-wUr"/>
+                            <constraint firstItem="rDm-KO-wyT" firstAttribute="top" secondItem="L7p-q4-GHN" secondAttribute="bottom" constant="30" id="p96-jL-FHu"/>
+                            <constraint firstItem="J30-Vp-6EN" firstAttribute="leading" secondItem="GP9-kH-UEK" secondAttribute="leading" id="wea-xW-pE0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SL2-97-ok2"/>
@@ -155,7 +338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3iE-MU-g4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="345" y="-1037"/>
+            <point key="canvasLocation" x="-146" y="-967"/>
         </scene>
         <!--Pthread Controller-->
         <scene sceneID="XQT-CK-Q0c">
@@ -192,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yQc-T2-ayE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1143" y="-579"/>
+            <point key="canvasLocation" x="646" y="-754"/>
         </scene>
         <!--Thread View Controller-->
         <scene sceneID="JRB-It-Vd1">
@@ -215,11 +398,89 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="rR5-qF-izS"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i32-Vn-QSm">
+                                <rect key="frame" x="20" y="214" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VwA-oh-NMa"/>
+                                </constraints>
+                                <state key="normal" title="线程1"/>
+                                <connections>
+                                    <action selector="createThread1:" destination="VWt-GQ-jeZ" eventType="touchUpInside" id="fqU-dy-5Ln"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gh-is-kzZ">
+                                <rect key="frame" x="36" y="274" width="303" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Oah-EW-9rF"/>
+                                </constraints>
+                                <state key="normal" title="线程2"/>
+                                <connections>
+                                    <action selector="createThread2:" destination="VWt-GQ-jeZ" eventType="touchUpInside" id="hNE-H7-dld"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijm-Ma-gQR">
+                                <rect key="frame" x="36" y="334" width="303" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xWS-Uk-uai"/>
+                                </constraints>
+                                <state key="normal" title="线程3"/>
+                                <connections>
+                                    <action selector="createThread3:" destination="VWt-GQ-jeZ" eventType="touchUpInside" id="QF8-cw-WQg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tt7-Pg-GZw">
+                                <rect key="frame" x="46" y="394" width="283" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6yQ-G0-Gua"/>
+                                </constraints>
+                                <state key="normal" title="线程睡眠"/>
+                                <connections>
+                                    <action selector="threadSleep:" destination="VWt-GQ-jeZ" eventType="touchUpInside" id="SW3-gb-PLK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCG-rE-kO7">
+                                <rect key="frame" x="46" y="454" width="283" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8Sd-dG-EGA"/>
+                                </constraints>
+                                <state key="normal" title="线程锁"/>
+                                <connections>
+                                    <action selector="threadLock:" destination="VWt-GQ-jeZ" eventType="touchUpInside" id="lNK-jA-Xz6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ol-gm-1Be">
+                                <rect key="frame" x="46" y="514" width="283" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ysP-4C-gRK"/>
+                                </constraints>
+                                <state key="normal" title="线程间通信"/>
+                                <connections>
+                                    <action selector="showImageView:" destination="VWt-GQ-jeZ" eventType="touchUpInside" id="ldS-E0-jA5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9ol-gm-1Be" firstAttribute="leading" secondItem="ScM-72-H1B" secondAttribute="leadingMargin" constant="30" id="3Wx-C2-kt0"/>
+                            <constraint firstItem="i32-Vn-QSm" firstAttribute="top" secondItem="yJS-Fa-Apx" secondAttribute="bottom" constant="30" id="5Tq-QY-0FR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9ol-gm-1Be" secondAttribute="trailing" constant="30" id="7Di-dh-FQR"/>
                             <constraint firstItem="yJS-Fa-Apx" firstAttribute="top" secondItem="UOd-N9-h9J" secondAttribute="bottom" constant="20" id="8ve-Ay-SYe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wCG-rE-kO7" secondAttribute="trailing" constant="30" id="9Hh-SR-IZW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ijm-Ma-gQR" secondAttribute="trailing" constant="20" id="Bee-gj-4GP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tt7-Pg-GZw" secondAttribute="trailing" constant="30" id="CYq-Yj-sNh"/>
+                            <constraint firstItem="tt7-Pg-GZw" firstAttribute="top" secondItem="ijm-Ma-gQR" secondAttribute="bottom" constant="30" id="FXb-c3-dgQ"/>
+                            <constraint firstItem="ijm-Ma-gQR" firstAttribute="leading" secondItem="ScM-72-H1B" secondAttribute="leadingMargin" constant="20" id="Fhc-8H-LnP"/>
+                            <constraint firstItem="9gh-is-kzZ" firstAttribute="top" secondItem="i32-Vn-QSm" secondAttribute="bottom" constant="30" id="Gk4-07-QI1"/>
+                            <constraint firstItem="9ol-gm-1Be" firstAttribute="top" secondItem="wCG-rE-kO7" secondAttribute="bottom" constant="30" id="MGF-sR-dab"/>
+                            <constraint firstItem="i32-Vn-QSm" firstAttribute="leading" secondItem="ScM-72-H1B" secondAttribute="leading" constant="20" id="Nzo-as-d1U"/>
                             <constraint firstItem="yJS-Fa-Apx" firstAttribute="leading" secondItem="ScM-72-H1B" secondAttribute="leadingMargin" constant="20" id="Ozx-ti-rt8"/>
+                            <constraint firstItem="9gh-is-kzZ" firstAttribute="leading" secondItem="ScM-72-H1B" secondAttribute="leadingMargin" constant="20" id="dKe-Da-fol"/>
+                            <constraint firstItem="wCG-rE-kO7" firstAttribute="leading" secondItem="ScM-72-H1B" secondAttribute="leadingMargin" constant="30" id="oBy-am-Rp5"/>
+                            <constraint firstItem="wCG-rE-kO7" firstAttribute="top" secondItem="tt7-Pg-GZw" secondAttribute="bottom" constant="30" id="oja-o7-wy2"/>
+                            <constraint firstItem="ijm-Ma-gQR" firstAttribute="top" secondItem="9gh-is-kzZ" secondAttribute="bottom" constant="30" id="qNp-UU-Cpq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9gh-is-kzZ" secondAttribute="trailing" constant="20" id="uG9-Wl-vTH"/>
+                            <constraint firstAttribute="trailing" secondItem="i32-Vn-QSm" secondAttribute="trailing" constant="20" id="viR-A4-VQx"/>
+                            <constraint firstItem="tt7-Pg-GZw" firstAttribute="leading" secondItem="ScM-72-H1B" secondAttribute="leadingMargin" constant="30" id="zaz-1h-Nad"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GUU-4c-t1L"/>
@@ -229,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bt-2k-Xuu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1141.5999999999999" y="94.902548725637189"/>
+            <point key="canvasLocation" x="420" y="115"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="UTm-9H-UR6">
@@ -266,7 +527,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xD-9t-dBk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-247" y="540"/>
+            <point key="canvasLocation" x="-218" y="572"/>
         </scene>
     </scenes>
 </document>

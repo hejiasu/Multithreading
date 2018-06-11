@@ -164,7 +164,7 @@
     //设置队列挂起或者取消的话都必须是在block方法执行完之后才有效
     [queue addOperationWithBlock:^{
         for(NSInteger i = 0;i<20;i++){
-            NSLog(@"-5--%d---%@",i,[NSThread currentThread]);
+            NSLog(@"-5--%ld---%@",(long)i,[NSThread currentThread]);
         }
     }];
     self.queue = queue;
