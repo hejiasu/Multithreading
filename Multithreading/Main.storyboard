@@ -127,17 +127,101 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bez-uk-mDE">
-                                <rect key="frame" x="36" y="84" width="100" height="100"/>
+                                <rect key="frame" x="46" y="84" width="283" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="38m-E3-f8d"/>
-                                    <constraint firstAttribute="width" constant="100" id="e1a-LX-MrN"/>
+                                    <constraint firstAttribute="height" constant="100" id="1Og-ti-9ge"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Clr-IQ-8EU">
+                                <rect key="frame" x="46" y="214" width="139" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="42P-46-xFZ"/>
+                                </constraints>
+                                <state key="normal" title="InvocationOperation"/>
+                                <connections>
+                                    <action selector="invocationOperation:" destination="By1-en-weJ" eventType="touchUpInside" id="cQc-c1-86r"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeZ-lg-xdN">
+                                <rect key="frame" x="46" y="244" width="106" height="30"/>
+                                <state key="normal" title="blockOperation"/>
+                                <connections>
+                                    <action selector="blockOperation:" destination="By1-en-weJ" eventType="touchUpInside" id="xbA-gO-NDa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqR-Aq-hYU">
+                                <rect key="frame" x="46" y="289" width="175" height="30"/>
+                                <state key="normal" title="OperationQueue基本用法"/>
+                                <connections>
+                                    <action selector="creatOperationQueue1:" destination="By1-en-weJ" eventType="touchUpInside" id="qDQ-4O-ZZU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3R-Tq-o6F">
+                                <rect key="frame" x="46" y="334" width="92" height="30"/>
+                                <state key="normal" title="设置最大并发"/>
+                                <connections>
+                                    <action selector="creatOperationQueue2:" destination="By1-en-weJ" eventType="touchUpInside" id="64x-VW-gQB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWu-18-lcW">
+                                <rect key="frame" x="46" y="379" width="62" height="30"/>
+                                <state key="normal" title="队列挂起"/>
+                                <connections>
+                                    <action selector="createOperationQueueSuspended:" destination="By1-en-weJ" eventType="touchUpInside" id="bVg-JE-IMk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUa-Wv-u2P">
+                                <rect key="frame" x="46" y="424" width="92" height="30"/>
+                                <state key="normal" title="设置队列依赖"/>
+                                <connections>
+                                    <action selector="createOperationQueueSetDependency:" destination="By1-en-weJ" eventType="touchUpInside" id="Vzb-7w-FeD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxB-dN-2hL">
+                                <rect key="frame" x="46" y="469" width="92" height="30"/>
+                                <state key="normal" title="线程间的通信"/>
+                                <connections>
+                                    <action selector="createOperationQueueShowImage:" destination="By1-en-weJ" eventType="touchUpInside" id="48f-ae-XLv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CX-HH-DoR">
+                                <rect key="frame" x="118" y="379" width="92" height="30"/>
+                                <state key="normal" title="设置队列挂起"/>
+                                <connections>
+                                    <action selector="operationSetSuspended:" destination="By1-en-weJ" eventType="touchUpInside" id="8Xl-WB-UZE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nn8-iN-YgA">
+                                <rect key="frame" x="220" y="379" width="92" height="30"/>
+                                <state key="normal" title="设置队列取消"/>
+                                <connections>
+                                    <action selector="operationSetCancel:" destination="By1-en-weJ" eventType="touchUpInside" id="AtV-cs-VHq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Bez-uk-mDE" firstAttribute="leading" secondItem="Shx-kZ-lvT" secondAttribute="leadingMargin" constant="20" id="RAk-rp-duz"/>
-                            <constraint firstItem="Bez-uk-mDE" firstAttribute="top" secondItem="6vi-uH-vUv" secondAttribute="bottom" constant="20" id="lJI-3Y-BSO"/>
+                            <constraint firstItem="Bez-uk-mDE" firstAttribute="top" secondItem="6vi-uH-vUv" secondAttribute="bottom" constant="20" id="0Ev-Cw-pyV"/>
+                            <constraint firstItem="PeZ-lg-xdN" firstAttribute="leading" secondItem="Clr-IQ-8EU" secondAttribute="leading" id="0xp-bp-Ixz"/>
+                            <constraint firstItem="8CX-HH-DoR" firstAttribute="leading" secondItem="qWu-18-lcW" secondAttribute="trailing" constant="10" id="3Op-PP-it7"/>
+                            <constraint firstItem="qWu-18-lcW" firstAttribute="top" secondItem="b3R-Tq-o6F" secondAttribute="bottom" constant="15" id="5rf-7I-ala"/>
+                            <constraint firstItem="Clr-IQ-8EU" firstAttribute="leading" secondItem="Bez-uk-mDE" secondAttribute="leading" id="Av9-7x-ASA"/>
+                            <constraint firstItem="Clr-IQ-8EU" firstAttribute="top" secondItem="Bez-uk-mDE" secondAttribute="bottom" constant="30" id="HTj-mx-gIs"/>
+                            <constraint firstItem="qWu-18-lcW" firstAttribute="leading" secondItem="b3R-Tq-o6F" secondAttribute="leading" id="Iv9-lf-QSl"/>
+                            <constraint firstItem="8CX-HH-DoR" firstAttribute="top" secondItem="qWu-18-lcW" secondAttribute="top" id="OIu-Pf-Bfe"/>
+                            <constraint firstItem="sUa-Wv-u2P" firstAttribute="top" secondItem="qWu-18-lcW" secondAttribute="bottom" constant="15" id="R0Z-Ab-AvT"/>
+                            <constraint firstItem="dxB-dN-2hL" firstAttribute="top" secondItem="sUa-Wv-u2P" secondAttribute="bottom" constant="15" id="YY1-pN-lko"/>
+                            <constraint firstItem="b3R-Tq-o6F" firstAttribute="leading" secondItem="dqR-Aq-hYU" secondAttribute="leading" id="Zwz-re-lEu"/>
+                            <constraint firstItem="dqR-Aq-hYU" firstAttribute="leading" secondItem="PeZ-lg-xdN" secondAttribute="leading" id="bv5-PO-c1J"/>
+                            <constraint firstItem="dqR-Aq-hYU" firstAttribute="top" secondItem="PeZ-lg-xdN" secondAttribute="bottom" constant="15" id="jBW-LQ-gs8"/>
+                            <constraint firstItem="dxB-dN-2hL" firstAttribute="leading" secondItem="sUa-Wv-u2P" secondAttribute="leading" id="mYp-Yx-4ym"/>
+                            <constraint firstItem="sUa-Wv-u2P" firstAttribute="leading" secondItem="qWu-18-lcW" secondAttribute="leading" id="nuR-wI-h1G"/>
+                            <constraint firstItem="PeZ-lg-xdN" firstAttribute="top" secondItem="Clr-IQ-8EU" secondAttribute="bottom" constant="15" id="ouk-Fd-LOx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Bez-uk-mDE" secondAttribute="trailing" constant="30" id="qJ9-sT-m0g"/>
+                            <constraint firstItem="nn8-iN-YgA" firstAttribute="top" secondItem="8CX-HH-DoR" secondAttribute="top" id="rgd-PH-alc"/>
+                            <constraint firstItem="b3R-Tq-o6F" firstAttribute="top" secondItem="dqR-Aq-hYU" secondAttribute="bottom" constant="15" id="szt-ns-vva"/>
+                            <constraint firstItem="nn8-iN-YgA" firstAttribute="leading" secondItem="8CX-HH-DoR" secondAttribute="trailing" constant="10" id="uLj-Vs-RQB"/>
+                            <constraint firstItem="Bez-uk-mDE" firstAttribute="leading" secondItem="Shx-kZ-lvT" secondAttribute="leadingMargin" constant="30" id="ymR-Z0-yqx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XNm-IG-yma"/>
@@ -147,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4T-7X-GAy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-218" y="-127"/>
+            <point key="canvasLocation" x="-218.40000000000001" y="-127.28635682158921"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hma-9m-usQ">
