@@ -22,35 +22,53 @@
     
     
     //队列挂起初始化
-    //    [self createOperationQueueSuspended];
+//    [self createOperationQueueSuspended];
 }
 
 
 #pragma mark-invocationOperation
 - (IBAction)invocationOperation:(id)sender {
-    
     //初始化Operation子类
     NSInvocationOperation *operation = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(run) object:nil];
     //开启
     [operation start];
 }
 -(void)run{
-    NSLog(@"--%@",[NSThread currentThread]);
+    NSLog(@"0--%@",[NSThread currentThread]);
 }
 
 #pragma mark-blockOperation
 - (IBAction)blockOperation:(id)sender {
-    
     //初始化Operation子类
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
-        //在主线程
-        NSLog(@"--%@",[NSThread currentThread]);
+        NSLog(@"1--%@",[NSThread currentThread]);
     }];
     
     //添加额外的任务（在子线程执行）
     [operation addExecutionBlock:^{
-        NSLog(@"--%@",[NSThread currentThread]);
+        NSLog(@"2--%@",[NSThread currentThread]);
     }];
+    [operation addExecutionBlock:^{
+        NSLog(@"3--%@",[NSThread currentThread]);
+    }];
+//    [operation addExecutionBlock:^{
+//        NSLog(@"4--%@",[NSThread currentThread]);
+//    }];
+//    [operation addExecutionBlock:^{
+//        NSLog(@"5--%@",[NSThread currentThread]);
+//    }];
+//    [operation addExecutionBlock:^{
+//        NSLog(@"6--%@",[NSThread currentThread]);
+//    }];
+//    [operation addExecutionBlock:^{
+//        NSLog(@"7--%@",[NSThread currentThread]);
+//    }];
+//    [operation addExecutionBlock:^{
+//        NSLog(@"8--%@",[NSThread currentThread]);
+//    }];
+//    [operation addExecutionBlock:^{
+//        NSLog(@"9--%@",[NSThread currentThread]);
+//    }];
     
     [operation start];
 }
@@ -60,17 +78,18 @@
     
     //创建队列
     NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-    
+//    NSOperationQueue *queue = [NSOperationQueue mainQueue];
+
     //创建操作（任务）
     //创建--NSInvocationOperation
     NSInvocationOperation *op1 = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(run1) object:nil];
     NSInvocationOperation *op2 = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(run2) object:nil];
     //创建--NSBlockOperation
     NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
-        NSLog(@"-3--%@",[NSThread currentThread]);
+        NSLog(@"-1--%@",[NSThread currentThread]);
     }];
     NSBlockOperation *op4 = [NSBlockOperation blockOperationWithBlock:^{
-        NSLog(@"-4--%@",[NSThread currentThread]);
+        NSLog(@"-2--%@",[NSThread currentThread]);
     }];
     
     //自定义（需要继承NSOperation，执行的操作需要放在这个自定义类的main中）
@@ -84,16 +103,16 @@
     [queue addOperation:op5];
     //也可以直接创建任务到队列中去
     [queue addOperationWithBlock:^{
-        NSLog(@"-6--%@",[NSThread currentThread]);
+        NSLog(@"-3--%@",[NSThread currentThread]);
     }];
 }
 
 -(void)run1{
-    NSLog(@"-1--%@",[NSThread currentThread]);
+    NSLog(@"-run1--%@",[NSThread currentThread]);
 }
 
 -(void)run2{
-    NSLog(@"-2--%@",[NSThread currentThread]);
+    NSLog(@"-run2--%@",[NSThread currentThread]);
 }
 
 
@@ -103,22 +122,26 @@
 - (IBAction)creatOperationQueue2:(id)sender {
     //创建队列
     NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-    //设置最大并发操作数(不管加入队列有多少操作，实际队列并发数为2)
-//    queue.maxConcurrentOperationCount = 2;
+    //设置最大并发操作数(不管加入队列有多少操作，实际队列并发数为3)
+    queue.maxConcurrentOperationCount = 3;
     
-    //设置为1就成了串行队列
-    queue.maxConcurrentOperationCount = 1;
+//    //设置为1就成了串行队列
+//    queue.maxConcurrentOperationCount = 1;
     
     [queue addOperationWithBlock:^{
+        [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
         NSLog(@"-1--%@",[NSThread currentThread]);
     }];
     [queue addOperationWithBlock:^{
+        [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
         NSLog(@"-2--%@",[NSThread currentThread]);
     }];
     [queue addOperationWithBlock:^{
+        [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
         NSLog(@"-3--%@",[NSThread currentThread]);
     }];
     [queue addOperationWithBlock:^{
+        [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
         NSLog(@"-4--%@",[NSThread currentThread]);
     }];
 }
@@ -182,19 +205,28 @@
     }];
     NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
         NSLog(@"down2---%@",[NSThread currentThread]);
+        
     }];
     NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
+
         NSLog(@"down3---%@",[NSThread currentThread]);
+        
+    }];
+    NSBlockOperation *op4 = [NSBlockOperation blockOperationWithBlock:^{
+       
+        NSLog(@"down4---%@",[NSThread currentThread]);
     }];
     
-    //设置依赖（op1和op2执行完之后才执行3）
+    
+    //设置依赖（op1和op3执行完之后才执行2）
     [op3 addDependency:op1];
-    [op3 addDependency:op2];
+    [op3 addDependency:op4];
     
     [queue addOperation:op1];
     [queue addOperation:op2];
     [queue addOperation:op3];
-    
+    [queue addOperation:op4];
+
     
     //监听一个操作的执行完成
     [op3 setCompletionBlock:^{

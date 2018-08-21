@@ -32,7 +32,7 @@
     //1、创建一个并发队列
     //参数1：队列的名字
     //参数2：队列的类型(并发：DISPATCH_QUEUE_CONCURRENT,串行：DISPATCH_QUEUE_SERIAL)
-//    dispatch_queue_t queue = dispatch_queue_create("com.xiaoyi.queue", DISPATCH_QUEUE_CONCURRENT);
+    //    dispatch_queue_t queue = dispatch_queue_create("com.xiaoyi.queue", DISPATCH_QUEUE_CONCURRENT);
     
     //2、获得全局的并发队列
     //参数1：优先级，官方建议用default
@@ -41,18 +41,13 @@
     
     //2、将任务加入队列
     dispatch_async(queue, ^{
-        
-
         for (NSInteger i = 0; i<5; i++) {
             NSLog(@"1--%@",[NSThread currentThread]);
         }
-        
     });
     
     dispatch_async(queue, ^{
-
         for (NSInteger i = 0; i<5; i++) {
-            
             NSLog(@"2--%@",[NSThread currentThread]);
         }
     });
@@ -71,20 +66,14 @@
     //参数2：第二个参数目前没有意义，官方文档提示传0
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
-    
     //2、将任务加入队列
     dispatch_sync(queue, ^{
-    
         for (NSInteger i = 0; i<5; i++) {
             NSLog(@"1--%@",[NSThread currentThread]);
         }
-        
     });
-    
     dispatch_sync(queue, ^{
-        
         for (NSInteger i = 0; i<5; i++) {
-            
             NSLog(@"2--%@",[NSThread currentThread]);
         }
     });
@@ -104,15 +93,11 @@
 //    dispatch_queue_t queue = dispatch_queue_create("com.xiaoyi.queue", NULL);
 
     
-  
     //2、将任务加入队列
     dispatch_async(queue, ^{
-        
-
         for (NSInteger i = 0; i<5; i++) {
             NSLog(@"1--%@",[NSThread currentThread]);
         }
-        
     });
     
     dispatch_async(queue, ^{
@@ -120,8 +105,6 @@
             NSLog(@"2--%@",[NSThread currentThread]);
         }
     });
-
-
 }
 #pragma mark- 同步函数+串行队列:不会开线程，在当前线程执行任务
 
@@ -137,14 +120,11 @@
     //参数2：队列的类型（NULL）
     dispatch_queue_t queue = dispatch_queue_create("com.xiaoyi.queue", NULL);
     
-    
-    
     //2、将任务加入队列
     dispatch_sync(queue, ^{
         for (NSInteger i = 0; i<5; i++) {
             NSLog(@"1--%@",[NSThread currentThread]);
         }
-        
     });
     
     dispatch_sync(queue, ^{
@@ -167,14 +147,12 @@
         for (NSInteger i = 0; i<5; i++) {
             NSLog(@"1--%@",[NSThread currentThread]);
         }
-        
     });
     dispatch_async(queue, ^{
         for (NSInteger i = 0; i<5; i++) {
             NSLog(@"2--%@",[NSThread currentThread]);
         }
     });
-
 }
 //同步和异步主要影响能不能开线程
 //串行和并行主要影响任务的执行方式
@@ -185,13 +163,11 @@
     
     //获取主队列
     dispatch_queue_t queue = dispatch_get_main_queue();
-    
     //2、将任务加入队列
     dispatch_sync(queue, ^{
         for (NSInteger i = 0; i<5; i++) {
             NSLog(@"1--%@",[NSThread currentThread]);
         }
-        
     });
     
     dispatch_sync(queue, ^{
@@ -217,7 +193,6 @@
         dispatch_sync(dispatch_get_main_queue(), ^{
             self.imageView.image = image;
         });
-        
     });
 }
 
@@ -228,7 +203,6 @@
 
     
     dispatch_queue_t queue = dispatch_queue_create("com.xiaoyi.queue", DISPATCH_QUEUE_CONCURRENT);
-    
     dispatch_async(queue, ^{
         for (NSInteger i = 0; i<3; i++) {
             NSLog(@"1----%@",[NSThread currentThread]);
@@ -291,26 +265,26 @@
     //参数1： 指定重复次数
     //参数2：对象的DispatchQueue
     //参数3：带有参数的Block, index的作用是为了按执行的顺序区分各个Block
-//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//    dispatch_apply(10, queue, ^(size_t index) {
-//        NSLog(@"%@--%zu",[NSThread currentThread],index);
-//    });
-//    NSLog(@"done");
-    
-    
-    NSArray *dictArray = nil;//存放从服务器返回的字典数组
-    
-    dispatch_queue_t queue = dispatch_queue_create("queue", DISPATCH_QUEUE_CONCURRENT);
-    dispatch_async(queue, ^{
-        
-        dispatch_apply(dictArray.count, queue,  ^(size_t index){
-            //字典转模型
-            
-        });
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"主线程更新");
-        });
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_apply(10, queue, ^(size_t index) {
+        NSLog(@"%@--%zu",[NSThread currentThread],index);
     });
+    NSLog(@"done");
+    
+    
+//    NSArray *dictArray = nil;//存放从服务器返回的字典数组
+//
+//    dispatch_queue_t queue = dispatch_queue_create("queue", DISPATCH_QUEUE_CONCURRENT);
+//    dispatch_async(queue, ^{
+//
+//        dispatch_apply(dictArray.count, queue,  ^(size_t index){
+//            //字典转模型
+//
+//        });
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            NSLog(@"主线程更新");
+//        });
+//    });
     
 };
 
@@ -324,7 +298,6 @@
     //创建一个队列组
     dispatch_group_t group = dispatch_group_create();
     
-    
     dispatch_group_async(group, queue, ^{
         NSLog(@"download image1 start");
         //下载图片1
@@ -332,28 +305,20 @@
         NSData *data = [NSData dataWithContentsOfURL:url];
         self.image1 =[UIImage imageWithData:data];
         NSLog(@"download image1 end");
-
     });
-    
-    
     
     dispatch_group_async(group, queue, ^{
         NSLog(@"download image2 start");
-
         //下载图片2
         NSURL *url = [NSURL URLWithString:@"http://pic38.nipic.com/20140228/5571398_215900721128_2.jpg"];
         NSData *data = [NSData dataWithContentsOfURL:url];
         self.image2 =[UIImage imageWithData:data];
-        
         NSLog(@"download image2 end");
-
     });
     
     //当这个队列组的所有队列全部完成，就会收到这个消息
     dispatch_group_notify(group, queue, ^{
-        
         NSLog(@"download all images");
-        
         //合成新图片
         UIGraphicsBeginImageContext(CGSizeMake(100, 100));
         [self.image1 drawInRect:CGRectMake(0, 0, 50, 100)];

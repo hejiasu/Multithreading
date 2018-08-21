@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface SSOperation : NSOperation
-
+@property (nonatomic, assign, getter = isExecuting) BOOL executing;
+@property (nonatomic, assign, getter = isFinished) BOOL finished;
 @end

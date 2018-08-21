@@ -12,6 +12,8 @@
 
 #pragma mark-需要执行的任务
 -(void)main{
-    NSLog(@"-5--%@",[NSThread currentThread]);
+    if (!self.isCancelled) {
+        NSLog(@"-0--%@",[NSThread currentThread]);
+    }
 }
 @end
